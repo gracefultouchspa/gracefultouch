@@ -49,6 +49,7 @@ nav {
 /* SHARED SECTION STYLES */
 .container { padding: 40px 20px; max-width: 900px; margin: 0 auto; }
 .section-title { font-family: 'Playfair Display', serif; color: #4a148c; font-size: 30px; text-align: center; margin-bottom: 25px; }
+.sub-section-title { font-family: 'Playfair Display', serif; color: #4a148c; font-size: 24px; text-align: center; margin: 35px 0 20px 0; border-bottom: 2px solid #f3e5f5; padding-bottom: 10px;}
 
 /* SERVICES GRID */
 .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
@@ -171,6 +172,8 @@ nav {
 <div id="services" class="page">
     <div class="container">
         <h2 class="section-title">Services & Prices</h2>
+        
+        <h3 class="sub-section-title">Nail Services</h3>
         <div class="services-grid">
             <div class="service-card"><img src="manicure.jpg" alt="Professional Manicure Service Nairobi"><h3>Manicure</h3><span class="price">KSh 200</span></div>
             <div class="service-card"><img src="pedi_plain.jpg" alt="Affordable Plain Pedicure Kasarani"><h3>Pedicure Plain</h3><span class="price">KSh 400</span></div>
@@ -186,9 +189,39 @@ nav {
             <div class="service-card"><img src="ombre.jpg" alt="Trendy Ombre Nail Color Fade"><h3>Ombre</h3><span class="price">KSh 700</span></div>
             <div class="service-card"><img src="french_tips.jpg" alt="Classic French Tips Nail Design"><h3>French Tips</h3><span class="price">KSh 700</span></div>
             <div class="service-card"><img src="deco.jpg" alt="Custom Nail Art and Decorations"><h3>Deco (per nail)</h3><span class="price">KSh 50</span></div>
-            <div class="service-card"><img src="eyebrow.jpg" alt="Professional Eyebrow Cut and Shaping"><h3>Eyebrow Cut</h3><span class="price">KSh 50</span></div>
+            <div class="service-card"><img src="eyebrow.jpg" alt="Professional Eyebrow Cut and Shaping"><h3>Eyebrow Cut</h3><span class="price">KSh 100</span></div>
         </div>
-        <p style="text-align:center; margin-top:20px; font-weight:bold; cursor:pointer;" onclick="showPage('home')">← Back to Home</p>
+
+        <h3 class="sub-section-title">Makeup & Brows</h3>
+        <div class="services-grid">
+            <div class="service-card">
+                <img src="shaping.jpg" alt="Eyebrow Shaping">
+                <h3>Eyebrow shaping</h3>
+                <span class="price">KSh 100</span>
+            </div>
+            <div class="service-card">
+                <img src="lashes.jpg" alt="Eyelashes Installation">
+                <h3>Eye lashes installation</h3>
+                <span class="price">KSh 500</span>
+            </div>
+            <div class="service-card">
+                <img src="touchup.jpg" alt="Makeup Touch up">
+                <h3>Makeup Touch up</h3>
+                <span class="price">KSh 500</span>
+            </div>
+            <div class="service-card">
+                <img src="half_makeup.jpg" alt="Half Makeup">
+                <h3>Half Makeup</h3>
+                <span class="price">KSh 800</span>
+            </div>
+            <div class="service-card">
+                <img src="full_makeup.jpg" alt="Full Makeup">
+                <h3>Full Makeup (inc. lashes)</h3>
+                <span class="price">KSh 1200</span>
+            </div>
+        </div>
+
+        <p style="text-align:center; margin-top:40px; font-weight:bold; cursor:pointer;" onclick="showPage('home')">← Back to Home</p>
     </div>
 </div>
 
@@ -275,5 +308,4 @@ function showPage(pageId) {
 </script>
 
 </body>
-                </html>
-                
+</html>
