@@ -1,184 +1,348 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Graceful Rose Nail Spa | Affordable Luxury</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blooming Shoots Education Center | CBE School</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --light-green: #90EE90;
+            --sky-blue: #87CEEB;
+            --deep-green: #2e7d32;
+            --dark-text: #2c3e50;
+            --white: #ffffff;
+            --light-gray: #f4f7f6;
+            --whatsapp-green: #25D366;
+            --facebook-blue: #1877F2;
+            --map-red: #ea4335;
+        }
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        * { box-sizing: border-box; }
+        
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0; padding: 0;
+            color: var(--dark-text);
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
 
-<style>
-/* GLOBAL STYLES */
-body { margin: 0; font-family: 'Poppins', sans-serif; background: #fff; color: #333; overflow-x: hidden; }
-.page { display: none; min-height: 100vh; animation: fadeIn 0.3s ease-in; }
-.active-page { display: block !important; }
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        /* Navigation */
+        nav {
+            background: var(--white);
+            padding: 10px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky; top: 0; z-index: 1000;
+        }
 
-/* NAVBAR */
-nav {
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 15px 20px; background: #4a148c; color: white;
-    position: sticky; top: 0; z-index: 1000;
-}
-.menu-toggle { font-size: 24px; cursor: pointer; }
-.nav-title { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.3rem; letter-spacing: 1px; flex-grow: 1; text-align: center; margin-right: 30px; }
+        .menu-btn { font-size: 1.5rem; cursor: pointer; color: var(--deep-green); background: none; border: none; }
+        .nav-logo-text { color: var(--deep-green); font-weight: bold; font-size: 1.1rem; text-decoration: none; }
 
-/* SIDEBAR MENU */
-.sidebar {
-    position: fixed; top: 0; left: -280px; width: 280px; height: 100%;
-    background: #4a148c; z-index: 2000; transition: 0.3s; padding-top: 60px;
-}
-.sidebar.open { left: 0; box-shadow: 5px 0 15px rgba(0,0,0,0.3); }
-.sidebar a {
-    display: block; padding: 15px 30px; color: white; text-decoration: none;
-    font-size: 18px; font-weight: 600; border-bottom: 1px solid rgba(255,255,255,0.1);
-}
-.close-menu { position: absolute; top: 20px; right: 20px; color: white; font-size: 24px; cursor: pointer; }
+        /* Sidebar Dropdown */
+        .sidebar {
+            height: 100%; width: 0; position: fixed; z-index: 2000;
+            top: 0; left: 0; background-color: var(--white);
+            overflow-x: hidden; transition: 0.5s; padding-top: 60px;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+        }
 
-/* HERO */
-.hero {
-    height: 80vh; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('nail2.jpg');
-    background-size: cover; background-position: center;
-    display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: white;
-    padding: 20px;
-}
-.hero-logo { width: 120px; height: 120px; border-radius: 50%; border: 3px solid #fff; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
-.spa-name { font-family: 'Playfair Display', serif; font-size: 40px; margin: 0; line-height: 1.2; }
+        .sidebar a { padding: 15px 32px; text-decoration: none; font-size: 1.1rem; color: var(--dark-text); display: block; font-weight: 600; }
+        .sidebar .close-btn { position: absolute; top: 10px; right: 25px; font-size: 2rem; color: var(--map-red); }
 
-/* SHARED SECTION STYLES */
-.container { padding: 40px 20px; max-width: 900px; margin: 0 auto; }
-.section-title { font-family: 'Playfair Display', serif; color: #4a148c; font-size: 30px; text-align: center; margin-bottom: 25px; }
-.sub-section-title { font-family: 'Playfair Display', serif; color: #4a148c; font-size: 24px; text-align: center; margin: 35px 0 20px 0; border-bottom: 2px solid #f3e5f5; padding-bottom: 10px;}
+        .overlay { display: none; position: fixed; width: 100%; height: 100%; top: 0; left: 0; background: rgba(0,0,0,0.5); z-index: 1500; }
 
-/* SERVICES GRID */
-.services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
-.service-card { background: #fdf7ff; border-radius: 15px; padding: 15px; border: 1px solid #e1bee7; text-align: center; }
-.service-card img { width: 75px; height: 75px; border-radius: 50%; object-fit: cover; margin-bottom: 10px; border: 2px solid #4a148c; }
-.price { color: #ad1457; font-weight: 700; }
+        /* Hero */
+        .hero {
+            /* Added a darker semi-transparent overlay to make text pop */
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('hero-bg.jpg');
+            background-size: cover; background-position: center;
+            height: 80vh; display: flex; flex-direction: column;
+            justify-content: center; align-items: center; text-align: center; padding: 20px;
+        }
 
-/* BUTTONS & LINKS */
-.btn-action { background: transparent; color: #4a148c; border: 2px solid #4a148c; padding: 10px 25px; border-radius: 50px; text-decoration: none; font-size: 14px; font-weight: bold; transition: 0.3s; display: inline-block; margin: 5px; cursor: pointer;}
-.btn-action:hover { background: #4a148c; color: white; }
-.btn-solid { background: #4a148c; color: white; border: none; }
-.phone-link { color: inherit; text-decoration: none; font-weight: 600; }
+        .hero-logo { width: 140px; height: auto; margin-bottom: 15px; filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.2)); }
+        
+        .hero h1 { 
+            font-size: 2.5rem; 
+            color: #ffffff; /* Changed to White */
+            margin: 10px 0; 
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Added shadow for visibility */
+        }
+        
+        .hero p { 
+            font-size: 1.2rem; 
+            color: #ffffff; /* Changed to White */
+            font-weight: 600; 
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5); /* Added shadow for visibility */
+        }
 
-/* TESTIMONIALS */
-.testimonials { background: #fdf7ff; padding: 40px 20px; text-align: center; }
-.review-card { background: white; padding: 20px; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); margin-bottom: 20px; border-left: 5px solid #4a148c; text-align: left; }
+        .btn { background: var(--deep-green); color: white; padding: 12px 30px; border-radius: 25px; text-decoration: none; font-weight: bold; margin-top: 20px; display: inline-block; transition: 0.3s; border: none; cursor: pointer; }
+        .btn:hover { transform: scale(1.05); background: #1b5e20; }
 
-/* GALLERY */
-.gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; padding: 20px; }
-.gallery img { width: 100%; height: 160px; object-fit: cover; border-radius: 12px; }
+        section { padding: 60px 10%; }
+        h2 { text-align: center; color: var(--deep-green); margin-bottom: 15px; }
+        .section-subtitle { text-align: center; margin-bottom: 40px; color: #666; font-size: 1.1rem; }
 
-/* CONTACT SECTION */
-.contact-footer { background: #f3e5f5; padding: 40px 20px; text-align: center; border-radius: 40px 40px 0 0; }
-.social-icons a { font-size: 26px; margin: 0 12px; color: #4a148c; text-decoration: none; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
 
-/* WHATSAPP FLOAT */
-.whatsapp { position: fixed; bottom: 25px; right: 20px; background: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 32px; z-index: 1500; }
+        /* Icon Boxes */
+        .icon-box { background: var(--white); padding: 30px; border-radius: 15px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05); border-top: 5px solid var(--deep-green); transition: 0.3s; }
+        .icon-box:hover { transform: translateY(-5px); }
+        .icon-box i { font-size: 2.5rem; color: var(--deep-green); margin-bottom: 15px; }
 
-@media (min-width: 768px) { .services-grid { grid-template-columns: repeat(4, 1fr); } .gallery { grid-template-columns: repeat(4, 1fr); } .spa-name { font-size: 60px; } }
-</style>
+        /* Essentials (Transport/Feeding) */
+        .essentials-section { background: var(--deep-green); color: white; border-radius: 20px; padding: 40px; margin-top: 20px; }
+        .essential-item { display: flex; align-items: center; gap: 20px; margin-bottom: 20px; }
+        .essential-item i { font-size: 1.5rem; background: rgba(255,255,255,0.2); padding: 15px; border-radius: 50%; width: 55px; height: 55px; display: flex; align-items: center; justify-content: center; }
+
+        /* Admissions */
+        .admissions-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        .step-number {
+            background: var(--sky-blue);
+            color: var(--white);
+            width: 40px; height: 40px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 15px;
+            font-weight: bold;
+        }
+        
+        /* Testimonials */
+        .testimonial-card { background: var(--white); padding: 30px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); position: relative; border-bottom: 4px solid var(--sky-blue); }
+        .parent-info { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
+        .parent-img { width: 60px; height: 60px; border-radius: 50%; object-fit: cover; background: var(--light-green); border: 2px solid var(--deep-green); }
+        .testimonial-text { font-style: italic; font-size: 0.95rem; line-height: 1.6; color: #555; }
+
+        /* WhatsApp Floating */
+        .whatsapp-float {
+            position: fixed; width: 60px; height: 60px; bottom: 30px; right: 30px;
+            background-color: var(--whatsapp-green); color: white; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; font-size: 30px; z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            text-decoration: none;
+        }
+
+        /* Footer */
+        footer { background: #1a1a1a; color: white; padding: 40px 10%; text-align: center; }
+        footer a { color: var(--sky-blue); text-decoration: none; transition: 0.3s; }
+        footer a:hover { color: var(--light-green); }
+
+        @media (max-width: 768px) {
+            section { padding: 50px 5%; }
+            .hero h1 { font-size: 2rem; }
+        }
+    </style>
 </head>
 <body>
 
-<nav>
-    <div class="menu-toggle" onclick="toggleMenu()"><i class="fa-solid fa-bars"></i></div>
-    <div class="nav-title">GRACEFUL ROSE</div>
-</nav>
-
-<div id="sidebar" class="sidebar">
-    <div class="close-menu" onclick="toggleMenu()"><i class="fa-solid fa-xmark"></i></div>
-    <a href="#" onclick="showPage('home')">Home</a>
-    <a href="#" onclick="showPage('services')">Services</a>
-    <a href="#" onclick="showPage('gallery-page')">Full Gallery</a>
-    <a href="#" onclick="showPage('about')">About Us</a>
-    <a href="#" onclick="showPage('careers')">Careers</a>
-    <a href="#" onclick="showPage('contact-page')">Contact</a>
-</div>
-
-<div id="home" class="page active-page">
-    <div class="hero">
-        <img src="logo.jpg" class="hero-logo" alt="Graceful Rose Nail Spa Logo Kasarani">
-        <h1 class="spa-name">Graceful Rose Nail Spa</h1>
-        <p style="font-style: italic; color: #e1bee7; font-size: 1.2rem;">Affordable Luxury in Kasarani</p>
-        <button onclick="showPage('services')" style="background: white; color: #4a148c; padding: 12px 35px; border-radius: 25px; border: none; font-weight: bold; margin-top: 25px; cursor: pointer; font-size: 1rem;">View Price List</button>
+    <div id="sideMenu" class="sidebar">
+        <a href="javascript:void(0)" class="close-btn" onclick="closeNav()">×</a>
+        <a href="#home" onclick="closeNav()">Home</a>
+        <a href="#curriculum" onclick="closeNav()">Curriculum & Activities</a>
+        <a href="#essentials" onclick="closeNav()">Transport & Meals</a>
+        <a href="#admissions" onclick="closeNav()">Admissions</a>
+        <a href="#gallery" onclick="closeNav()">Gallery</a>
+        <a href="#testimonials" onclick="closeNav()">Parents' Voice</a>
+        <a href="https://maps.app.goo.gl/9be2V8QcHdzHVURD9" target="_blank" onclick="closeNav()">Find Us</a>
     </div>
+    <div id="overlay" class="overlay" onclick="closeNav()"></div>
 
-    <div class="testimonials">
-        <h2 class="section-title">Happy Clients</h2>
-        <div class="container">
-            <div class="review-card">⭐⭐⭐⭐⭐<br><p>"The best affordable luxury in Kasarani! My nails look perfect."</p><b>— Mary W.</b></div>
-            <div class="review-card">⭐⭐⭐⭐⭐<br><p>"Highly professional and very clean. My gel stays for weeks!"</p><b>— Watetu</b></div>
-            <div class="review-card">⭐⭐⭐⭐⭐<br><p>"Amazing service at Hunters! The atmosphere is so relaxing."</p><b>— Sonnie</b></div>
-            
-            <a href="https://wa.me/254702085449?text=Hi%20Graceful%20Rose%20Nail%20Spa!%20I%20loved%20my%20nails.%20Here%20is%20my%20review:" class="btn-action">
-                <i class="fa-brands fa-whatsapp"></i> Leave a Review
-            </a>
+    <nav>
+        <button class="menu-btn" onclick="openNav()"><i class="fas fa-bars"></i></button>
+        <a href="#home" class="nav-logo-text">BLOOMING SHOOTS</a>
+        <div style="display: flex; gap: 15px; align-items: center;">
+            <a href="https://www.facebook.com/profile.php?id=100078643024414" target="_blank" style="color: var(--facebook-blue); font-size: 1.4rem;"><i class="fab fa-facebook"></i></a>
+            <a href="tel:+254724558506" style="color: var(--deep-green); font-size: 1.2rem;"><i class="fas fa-phone"></i></a>
         </div>
-    </div>
+    </nav>
 
-    <h2 class="section-title">Our Work</h2>
-    <div class="gallery">
-        <img src="nail1.jpg" alt="Graceful Rose Professional Nail Art">
-        <img src="nail2.jpg" alt="Beautiful Gel Polish at Kasarani Spa">
-        <img src="nail3.jpg" alt="Graceful Rose Nail Spa Client Gallery">
-        <img src="nail4.jpg" alt="Trendy Nail Designs at Hunters Kasarani">
-        <img src="ombre.jpg" alt="Ombre Nails Kasarani">
-        <img src="french_tips.jpg" alt="French Tips Kasarani">
-    </div>
-    <div style="text-align: center; margin-bottom: 30px;">
-        <button onclick="showPage('gallery-page')" class="btn-action">View Full Gallery</button>
-    </div>
+    <a href="https://wa.me/254724558506" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
-    <div class="contact-footer">
-        <h2 class="section-title">Visit Us</h2>
-        <p>📍 Hunters, Kasarani, Nairobi</p>
-        <div style="margin-bottom: 20px;">
-            <a href="https://maps.app.goo.gl/DunmZxHu1xN1xAF57" target="_blank" class="btn-action">
-                <i class="fa-solid fa-location-dot"></i> Get Directions
-            </a>
-            <a href="tel:0702085449" class="btn-action btn-solid">
-                <i class="fa-solid fa-phone"></i> Call Us
-            </a>
-        </div>
-        <p>📞 <a href="tel:0702085449" class="phone-link">0702085449</a> | <a href="tel:0720794411" class="phone-link">0720794411</a></p>
-        <div class="social-icons">
-            <a href="https://www.tiktok.com/@gracefulrosenailspa?_r=1&_t=ZS-94m9FO4LP7Y" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
-            <a href="https://www.instagram.com/gracefulrosenailspa" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://www.facebook.com/sawahomeapp" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
-        </div>
-    </div>
-</div>
+    <section id="home" class="hero">
+        <img src="logo.png" alt="Logo" class="hero-logo">
+        <h1>Blooming Shoots Education Center</h1>
+        <p>Nurturing Minds, Building Character, Inspiring Futures.</p>
+        <a href="#admissions" class="btn">Enroll Today</a>
+    </section>
 
-<div id="gallery-page" class="page">
-    <div class="container">
-        <h2 class="section-title">Full Gallery</h2>
-        <div class="gallery">
-            <img src="nail1.jpg" alt="Nail Art 1">
-            <img src="nail2.jpg" alt="Nail Art 2">
-            <img src="nail3.jpg" alt="Nail Art 3">
-            <img src="nail4.jpg" alt="Nail Art 4">
-            <img src="Ombre.jpg" alt="Ombre Nails">
-            <img src="french_tips.jpg" alt="French Tips">
-            <img src="acrylics.jpg" alt="Acrylics">
-            <img src="gumgel.jpg" alt="Gum Gel">
-            </div>
-        <p style="text-align:center; margin-top:20px; font-weight:bold; cursor:pointer;" onclick="showPage('home')">← Back to Home</p>
-    </div>
-</div>
-
-<div id="services" class="page">
-    <div class="container">
-        <h2 class="section-title">Services & Prices</h2>
+    <section id="curriculum" style="background-color: var(--light-gray);">
+        <h2>Life at Blooming Shoots</h2>
+        <p class="section-subtitle">We offer a holistic learning experience that balances the CBC curriculum with world-class talent development.</p>
         
-        <h3 class="sub-section-title">Nail Services</h3>
-        <div class="services-grid">
-            <div class="service-card"><img src="manicure.jpg" alt="Professional Manicure Service Nairobi"><h3>Manicure</h3><span class="price">KSh 200</span></div>
-            <div class="service-card"><img src="pedi_plain.jpg" alt="Affordable Plain Pedicure Kasarani"><h3>Pedicure Plain</h3><span class="price">KSh 400</span></div>
-            <div class="service-card"><img src="pedi_gel.jpg" alt="Pedicure and Gel Polish Combo"><h3>Pedicure & Gel</h3><span class="price">KSh 600</span></div>
-            <div class="service-card"><img src="plain_gel.jpg" alt="Long-lasting Plain Gel Nails"><h3>Plain Gel</h3><span class="price">KSh 300</span></div>
+        <div class="grid">
+            <div class="icon-box">
+                <i class="fas fa-book-reader"></i>
+                <h3>CBC/CBE Curriculum</h3>
+                <p>Fully compliant with the Competency Based Education system, focusing on 21st-century skills and practical learning for Playgroup to Grade 5.</p>
+            </div>
+            <div class="icon-box" style="border-top-color: var(--sky-blue);">
+                <i class="fas fa-chess"></i>
+                <h3>Chess & Mind Games</h3>
+                <p>Developing strategic thinking and concentration through our weekly chess classes.</p>
+            </div>
+            <div class="icon-box">
+                <i class="fas fa-music"></i>
+                <h3>Music & Arts</h3>
+                <p>Unlocking creativity through musical instruments, voice coaching, and creative arts.</p>
+            </div>
+            <div class="icon-box" style="border-top-color: var(--sky-blue);">
+                <i class="fas fa-language"></i>
+                <h3>French Lessons</h3>
+                <p>Giving our pupils a global edge with foreign language introduction from an early age.</p>
+            </div>
+            <div class="icon-box">
+                <i class="fas fa-swimmer"></i>
+                <h3>Swimming</h3>
+                <p>Professional swimming lessons in a safe environment to build physical fitness and water safety skills.</p>
+            </div>
+            <div class="icon-box" style="border-top-color: var(--sky-blue);">
+                <i class="fas fa-skating"></i>
+                <h3>Skating</h3>
+                <p>Fun and energetic skating sessions that help improve balance, coordination, and physical agility.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="essentials">
+        <div class="essentials-section">
+            <h2 style="color: white; text-align: left; margin-bottom: 30px;">Parent Essentials</h2>
+            <div class="grid">
+                <div class="essential-item">
+                    <i class="fas fa-bus"></i>
+                    <div>
+                        <h3>Reliable Transportation</h3>
+                        <p>Safe and punctual school bus services picking and dropping children within Kasarani, Mwiki, and surrounding areas.</p>
+                    </div>
+                </div>
+                <div class="essential-item">
+                    <i class="fas fa-utensils"></i>
+                    <div>
+                        <h3>Nutritious Feeding Program</h3>
+                        <p>We provide balanced, delicious, and hot meals daily to ensure our pupils have the energy they need to learn and grow.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="admissions" style="background: var(--sky-blue);">
+        <h2 style="color: white;">Admissions</h2>
+        <div class="grid">
+            <div class="admissions-card">
+                <div class="step-number">1</div>
+                <h3>Inquiry</h3>
+                <p><a href="tel:+254724558506" style="color: var(--deep-green); font-weight: bold;">Call us</a> or <a href="https://wa.me/254724558506" target="_blank" style="color: var(--deep-green); font-weight: bold;">WhatsApp</a> to check for vacancy.</p>
+            </div>
+            <div class="admissions-card">
+                <div class="step-number">2</div>
+                <h3>Visit Us</h3>
+                <p>Tour our campus at <a href="https://maps.app.goo.gl/9be2V8QcHdzHVURD9" target="_blank" style="color: var(--deep-green); font-weight: bold;">Kasarani-Mwiki road</a>.</p>
+            </div>
+            <div class="admissions-card">
+                <div class="step-number">3</div>
+                <h3>Registration</h3>
+                <p>Fill out the forms to secure your child's spot.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" style="background: var(--light-gray);">
+        <h2>Parents' Voice</h2>
+        <div class="grid">
+            <div class="testimonial-card">
+                <div class="parent-info">
+                    <img src="parent1.jpg" alt="Judy Ngina" class="parent-img">
+                    <div><strong>Judy Ngina</strong><br><small>Mama Imani</small></div>
+                </div>
+                <p class="testimonial-text">"My daughter goes to school here at Blooming Shoots Education Center and the progress I have seen is amazing!!! The teachers cater to the kids and what am thankful."</p>
+            </div>
+            <div class="testimonial-card">
+                <div class="parent-info">
+                    <img src="parent2.jpg" alt="Joy Wekesa" class="parent-img">
+                    <div><strong>Joy Wekesa</strong><br><small>Mama Meghan</small></div>
+                </div>
+                <p class="testimonial-text">"Blooming Shoots EC pays attention to details to children's needs...A very competent team of stuff that are always ready to serve the pupils."</p>
+            </div>
+            <div class="testimonial-card" style="border-bottom-color: var(--deep-green);">
+                <div class="parent-info">
+                    <img src="parent3.jpg" alt="Susan Njimu" class="parent-img">
+                    <div><strong>Susan Njimu</strong><br><small>Mama Jehlani</small></div>
+                </div>
+                <p class="testimonial-text">"Blooming Shoots Education Centre is an excellent school. My son really likes every school day... I have seen a lot of improvement in my son's studies from reading to understanding whatever is taught and relating it."</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery">
+        <h2>Gallery</h2>
+        <div class="grid">
+            <div style="background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                <img src="classroom.jpg" alt="Classroom" style="width:100%; height:200px; object-fit:cover;">
+                <div style="padding:15px; text-align:center;">Interactive Classrooms</div>
+            </div>
+            <div style="background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                <img src="swimming.jpg" alt="Swimming" style="width:100%; height:200px; object-fit:cover;">
+                <div style="padding:15px; text-align:center;">Swimming Sessions</div>
+            </div>
+            <div style="background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                <img src="skating.jpg" alt="Skating" style="width:100%; height:200px; object-fit:cover;">
+                <div style="padding:15px; text-align:center;">Skating Practice</div>
+            </div>
+            <div style="background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                <img src="chess.jpg" alt="Chess" style="width:100%; height:200px; object-fit:cover;">
+                <div style="padding:15px; text-align:center;">Chess & Strategy</div>
+            </div>
+            <div style="background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                <img src="french.jpg" alt="French Class" style="width:100%; height:200px; object-fit:cover;">
+                <div style="padding:15px; text-align:center;">French Lessons</div>
+            </div>
+            <div style="background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                <img src="music.jpg" alt="Music" style="width:100%; height:200px; object-fit:cover;">
+                <div style="padding:15px; text-align:center;">Music & Arts</div>
+            </div>
+            <div style="background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                <img src="playground.jpg" alt="Playground" style="width:100%; height:200px; object-fit:cover;">
+                <div style="padding:15px; text-align:center;">Safe Play Areas</div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div style="margin-bottom: 30px;">
+            <h3>Contact Us</h3>
+            <p><i class="fas fa-map-marker-alt" style="color: var(--map-red);"></i> <a href="https://maps.app.goo.gl/9be2V8QcHdzHVURD9" target="_blank">Kasarani-Mwiki Road, Equity Bank Stage</a></p>
+            <p><i class="fas fa-phone"></i> <a href="tel:+254724558506">+254 724 558 506</a></p>
+            <p><i class="fas fa-envelope"></i> <a href="mailto:info@bloomingshootseducationcentre.co.ke">info@bloomingshootseducationcentre.co.ke</a></p>
+            <p style="margin-top: 15px;"><a href="https://www.facebook.com/profile.php?id=100078643024414" target="_blank" style="color: var(--white); font-size: 1.5rem;"><i class="fab fa-facebook"></i></a></p>
+        </div>
+        <div style="margin-top: 20px;">
+            <a href="https://maps.app.goo.gl/9be2V8QcHdzHVURD9" target="_blank" style="background: var(--map-red); padding: 12px 24px; border-radius: 25px; color: white; font-weight: bold; display: inline-block;">
+                <i class="fas fa-location-arrow"></i> Open in Google Maps
+            </a>
+        </div>
+        <p style="margin-top:40px; opacity:0.6; font-size: 0.8rem;">© 2026 Blooming Shoots Education Center</p>
+    </footer>
+
+    <script>
+        function openNav() { document.getElementById("sideMenu").style.width = "260px"; document.getElementById("overlay").style.display = "block"; }
+        function closeNav() { document.getElementById("sideMenu").style.width = "0"; document.getElementById("overlay").style.display = "none"; }
+    </script>
+
+</body>
+</html>
+       <div class="service-card"><img src="plain_gel.jpg" alt="Long-lasting Plain Gel Nails"><h3>Plain Gel</h3><span class="price">KSh 300</span></div>
             <div class="service-card"><img src="overlay.jpg" alt="Nail Overlay and Gel Application"><h3>Overlay & Gel</h3><span class="price">KSh 700</span></div>
             <div class="service-card"><img src="tips_gel.jpg" alt="Nail Tips with Gel Extension"><h3>Tips & Gel</h3><span class="price">KSh 500</span></div>
             <div class="service-card"><img src="acrylics.jpg" alt="Expert Acrylic Nail Application"><h3>Acrylics</h3><span class="price">KSh 1500</span></div>
